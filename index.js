@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 });
 
 // app.use('/', router);
-app.get('/', (req, res) => {
+app.get('/test/aws', (req, res) => {
   res.send('Hello, World!');
 });
 
