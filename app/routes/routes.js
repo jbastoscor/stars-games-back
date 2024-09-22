@@ -17,4 +17,8 @@ router.post('/game/consult', consult_game);
 router.post('/game/update', update_game);
 router.post('/game/delete', delete_game);
 
+router.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
+
 module.exports = router;
