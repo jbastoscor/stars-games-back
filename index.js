@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const port = process.env.PORT || 4000;
 
-// const router = require('./app/routes/routes');
+const router = require('./app/routes/routes');
 const app = express();
 
 app.listen(port);
@@ -16,10 +16,5 @@ app.use((req, res, next) => {
   app.use(cors());
   next();
 });
-
-// app.use('/', router);
-app.get('/test/aws', (req, res) => {
-  res.send('Hello, World!');
-});
-
+app.use('/', router);
 console.log('Message RESTful API server started on: ' + port);
