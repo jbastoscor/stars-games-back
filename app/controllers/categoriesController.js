@@ -9,9 +9,10 @@ const client = new MongoClient(uri, {
 });
 
 exports.consult_categories = function (request, response) {
-  console.log(request);
+  // console.log(request);
 
   client.connect((err) => {
+    console.log('123');
     if (err) throw err;
 
     const collection = client
@@ -19,6 +20,7 @@ exports.consult_categories = function (request, response) {
       .collection('categories');
 
     collection.find({}).toArray(function (err, res) {
+      console.log('1');
       if (err) throw errorResponse(err);
       sucessResponse(res);
     });
