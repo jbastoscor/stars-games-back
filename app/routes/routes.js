@@ -11,7 +11,9 @@ const {
 
 const {
   register_game,
+  search_game,
   consult_game,
+  consult_games,
   update_game,
   delete_game,
 } = require('../controllers/gamesController');
@@ -22,6 +24,8 @@ router.get('/categories/consult', consult_categories);
 router.post('/category/update', update_category);
 router.post('/category/delete', delete_category);
 
+router.post('/game/search', search_game);
+router.post('/games/consult', consult_games);
 router.post('/game/register', register_game);
 router.post('/game/consult', consult_game);
 router.post('/game/update', update_game);

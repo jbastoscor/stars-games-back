@@ -8,6 +8,61 @@ const client = new MongoClient(uri, {
   serverApi: ServerApiVersion.v1,
 });
 
+exports.search_game = function (request, response) {
+  const search = new RegExp(`^${request.body.game_name}`);
+  const body = {
+    game_name: search,
+  };
+
+  console.log(request);
+  console.log(body);
+
+  client.connect((err) => {
+    if (err) throw err;
+
+    const collection = client.db('stars-game-database').collection('games');
+
+    collection.find(body).toArray(function (err, res) {
+      if (err) throw errorResponse(err);
+      sucessResponse(res);
+    });
+
+    function sucessResponse(res) {
+      response.send(res);
+    }
+
+    function errorResponse(error) {
+      response.send(error);
+    }
+  });
+};
+
+exports.consult_games = function (request, response) {
+  const body = request.body;
+
+  console.log(request);
+  console.log(body);
+
+  client.connect((err) => {
+    if (err) throw err;
+
+    const collection = client.db('stars-game-database').collection('games');
+
+    collection.find(body).toArray(function (err, res) {
+      if (err) throw errorResponse(err);
+      sucessResponse(res);
+    });
+
+    function sucessResponse(res) {
+      response.send(res);
+    }
+
+    function errorResponse(error) {
+      response.send(error);
+    }
+  });
+};
+
 exports.consult_game = function (request, response) {
   const body = request.body;
 
