@@ -27,6 +27,16 @@ const {
   update_user_reviews,
 } = require('../controllers/reviewsController');
 
+const {
+  register_user,
+  consult_user,
+  update_user,
+  signin_user,
+  signup_user,
+  valid_update_user_data,
+  valid_update_user_password,
+} = require('../controllers/userController');
+
 router.post('/category/register', register_category);
 router.post('/category/consult', consult_category);
 router.get('/categories/consult', consult_categories);
@@ -47,5 +57,13 @@ router.post('/reviews/game/update', update_game_reviews);
 router.post('/review/user/register', register_user_review);
 router.post('/reviews/user/consult', consult_user_reviews);
 router.post('/reviews/user/update', update_user_reviews);
+
+router.post('/user/register', register_user);
+router.post('/user/consult', consult_user);
+router.post('/user/update', update_user);
+router.post('/user/signin', signin_user);
+router.post('/user/signup', signup_user);
+router.post('/user/valid/update/data', valid_update_user_data);
+router.post('/user/valid/update/password', valid_update_user_password);
 
 module.exports = router;
