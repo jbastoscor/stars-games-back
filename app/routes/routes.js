@@ -1,7 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-const { consult_categories } = require('../controllers/categoriesController');
+const {
+  register_category,
+  consult_category,
+  consult_categories,
+  update_category,
+  delete_category,
+} = require('../controllers/categoriesController');
 
 const {
   register_game,
@@ -10,7 +16,11 @@ const {
   delete_game,
 } = require('../controllers/gamesController');
 
+router.post('/category/register', register_category);
+router.post('/category/consult', consult_category);
 router.get('/categories/consult', consult_categories);
+router.post('/category/update', update_category);
+router.post('/category/delete', delete_category);
 
 router.post('/game/register', register_game);
 router.post('/game/consult', consult_game);
